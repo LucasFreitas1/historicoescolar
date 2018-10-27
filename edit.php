@@ -26,8 +26,7 @@ echo 'passou';
     $nomeresponsavel = $_POST['nomeresponsavel'];
     $etnia = $_POST['etnia'];
     
-    $sql = 'UPDATE aluno SET nome=:nome, num_telefone=:numtelefone,
-    num_ddd=:ddd, nome_mae=:nomemae, nome_pai=:nomepai, nome_responsavel=:nomeresponsavel, id_tipo_etinia=:etnia 
+    $sql = 'UPDATE aluno SET nome=:nome, num_telefone=:numtelefone, num_ddd=:ddd, nome_mae=:nomemae, nome_pai=:nomepai, nome_responsavel=:nomeresponsavel, id_tipo_etinia=:etnia 
     WHERE matricula=:matricula';
 
 
@@ -60,7 +59,7 @@ echo 'passou';
 
              <div class="form-group">
              <label for="matricula">Matricula</label>
-             <input value="<?= $aluno->matricula; ?>" type="text" class="form-control" readonly>
+             <input value="<?= $aluno->matricula; ?>" type="text" name="matricula" id="matricula" class="form-control" readonly>
              </div>
 
              <div class="form-group">

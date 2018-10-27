@@ -24,6 +24,19 @@
       <li class="nav-item">
         <a class="nav-link" href="create.php">Cadastrar novo aluno</a>
         </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Relatorios Rodolfo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="alunoescola.php">Alunos de outras escolas</a>
+          <a class="dropdown-item" href="alunosturma.php">Alunos por turma</a>
+          <a class="dropdown-item" href="alunosetnia.php">Alunos por etnia</a>
+          <a class="dropdown-item" href="alunosmateria.php">Alunos por materia</a>
+        </div>
+      </li>
+
+
 
     </ul>
 

@@ -1,0 +1,73 @@
+SQL
+
+Primeiro view:
+
+
+select count(T.nome), T.nome as 'Etnia'
+from aluno A inner join tipo_etinia T
+on T.id_tipo_etinia = A.id_tipo_etinia
+group by T.id_tipo_etinia
+order by count(T.nome) asc;
+
+Salvo como qtdetnia: 
+select * from qtdetnia;
+
+
+
+Segundo view:
+
+select TT.nome as 'Tipo Turma', count(TT.id_tipo_turma) as 'Quantidade alunos' from turma T 
+inner join tipo_turma TT on T.id_tipo_turma = TT.id_tipo_turma
+inner join aluno_turma A on TT.id_tipo_turma = A.id_turma
+group by TT.id_tipo_turma
+order by count(TT.id_tipo_turma) asc;
+
+Salvo como alunosturma:
+select * from alunosturma;
+
+
+
+##Listar alunos que já passaram por outras escolas
+
+select A.nome as 'nome', count(E.cod_inep) as 'quantidade' from escolas E
+inner join aluno_has_escolas AE on E.cod_inep = AE.cod_inep
+inner join aluno A on AE.aluno_matricula = A.matricula
+group by A.nome
+order by A.matricula;
+
+Salvo como alunoescola
+select * from alunoescola;
+
+
+#quantidade aluno matriculados em uma materia
+
+select M.nome_materia as 'nome', count(M.id_materia) as 'quantidade' from materia M
+inner join lista_materias L on M.id_materia = L.id_materia
+inner join aluno A on L.aluno_matricula = A.matricula
+group by M.id_materia;
+
+Salvo como alunosmateria
+select * from alunosmateria;
+
+
+###########Comandos basicos sendo executados dentro do programa############
+
+Pagina inicial:
+select * from aluno;
+
+Pagina de cadastro de aluno:
+INSERT into aluno(matricula,nome,num_telefone,num_ddd,nome_mae,nome_pai,nome_responsavel,id_tipo_etinia)
+    values (:matricula,:nome,:numtelefone,:ddd,:nomemae,:nomepai,:nomeresponsavel,:etnia)'
+
+    Os valores com dois pontos ':' na frente são as variaveis que o PHP gera com os formularios e repassa
+
+
+Comando de excluir
+DELETE from aluno where matricula=:matricula'
+
+Comando de atualizar no banco:
+
+'UPDATE aluno SET nome=:nome, num_telefone=:numtelefone, num_ddd=:ddd, nome_mae=:nomemae, nome_pai=:nomepai, nome_responsavel=:nomeresponsavel, id_tipo_etinia=:etnia 
+    WHERE matricula=:matricula'
+
+Nesse comando não tem matricula, pois está para não realizar a alteração da matricula, somente dos outros valores(opção minha)
